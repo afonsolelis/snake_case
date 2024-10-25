@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformar em snake_case</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        textarea, input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transforme texto em snake_case</h1>
+        <textarea id="inputText" rows="4" placeholder="Digite o texto aqui"></textarea><br>
+        <button onclick="convertToSnakeCase()">Converter para snake_case</button><br>
+        <input type="text" id="outputText" readonly placeholder="Resultado em snake_case">
+    </div>
+
+    <script>
+        function convertToSnakeCase() {
+            let text = document.getElementById("inputText").value;
+            let snakeCaseText = text
+                .toLowerCase()
+                .trim()
+                .replace(/[\s]+/g, '_')  // Substitui espaços por '_'
+                .replace(/[^\w_]+/g, ''); // Remove caracteres especiais
+
+            document.getElementById("outputText").value = snakeCaseText;
+        }
+    </script>
+</body>
+</html>
